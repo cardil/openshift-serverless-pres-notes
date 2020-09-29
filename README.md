@@ -113,11 +113,12 @@ oc label namespace demo knative-eventing-injection=enabled
 oc get broker default
 ```
 
-### Deploy a event display
+### Restore a showcase ksvc to defaults
+
+**NOTE**: SinkBinding will not work if environment variables are already set on container.
 
 ```bash
-kn service create event-display \
-  --image quay.io/openshift-knative/knative-eventing-sources-event-display:latest
+kn service update showcase --env DELAY- --concurrency-limit 0
 ```
 
 ### Add SinkBinding to Broker
@@ -128,11 +129,23 @@ kn source binding create showcase \
   --sink broker:default
 ```
 
+### Deploy two event displays
+
+```bash
+kn service create event-display-1 \
+  --image quay.io/openshift-knative/knative-eventing-sources-event-display:latest
+kn service create event-display-2 \
+  --image quay.io/openshift-knative/knative-eventing-sources-event-display:latest
+```
+
 ### Add trigger
 
 ```bash
-kn trigger create showcase \
+kn trigger create showcase-1 \
   --broker default \
-  --sink svc:event-display
+  --sink svc:event-display-1
 #  --filter <KEY=VALUE>
+kn trigger create showcase-2 \
+  --broker default \
+  --sink svc:event-display-2
 ```

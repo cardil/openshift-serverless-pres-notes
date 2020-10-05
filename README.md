@@ -115,10 +115,11 @@ oc get broker default
 
 ### Restore a showcase ksvc to defaults
 
-**NOTE**: SinkBinding will not work if environment variables are already set on container.
+**NOTE**: SinkBinding will not work if template metadata name is set on Ksvc.
 
 ```bash
 kn service update showcase --env DELAY- --concurrency-limit 0
+oc edit ksvc showcase
 ```
 
 ### Add SinkBinding to Broker

@@ -109,7 +109,7 @@ oc get knativeeventing knative-eventing -n knative-eventing
 ### Deploy a default broker
 
 ```bash
-oc label namespace demo knative-eventing-injection=enabled
+oc label namespace demo eventing.knative.dev/injection=enabled
 oc get broker default
 ```
 
@@ -143,9 +143,9 @@ kn service create event-display-2 \
 ```bash
 kn trigger create showcase-1 \
   --broker default \
-  --sink svc:event-display-1
+  --sink ksvc:event-display-1
 #  --filter <KEY=VALUE>
 kn trigger create showcase-2 \
   --broker default \
-  --sink svc:event-display-2
+  --sink ksvc:event-display-2
 ```

@@ -118,7 +118,7 @@ oc get broker default
 **NOTE**: SinkBinding will not work if template metadata name is set on Ksvc ([knative/serving#9544](https://github.com/knative/serving/issues/9544)).
 
 ```bash
-oc edit ksvc showcase
+kn service update showcase --revision-name ''
 ```
 
 ### Add SinkBinding to Broker

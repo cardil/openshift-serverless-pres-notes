@@ -113,12 +113,11 @@ oc label namespace demo eventing.knative.dev/injection=enabled
 oc get broker default
 ```
 
-### Restore a showcase ksvc to defaults
+### Remove a showcase ksvc template metadata name
 
-**NOTE**: SinkBinding will not work if template metadata name is set on Ksvc.
+**NOTE**: SinkBinding will not work if template metadata name is set on Ksvc ([knative/serving#9544](https://github.com/knative/serving/issues/9544)).
 
 ```bash
-kn service update showcase --env DELAY- --concurrency-limit 0
 oc edit ksvc showcase
 ```
 

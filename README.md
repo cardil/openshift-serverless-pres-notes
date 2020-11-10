@@ -58,7 +58,7 @@ oc get knativeserving knative-serving -n knative-serving
 kubectl create ns demo
 kubens demo
 kn service create hello --image quay.io/cardil/knative-serving-showcase-js
-http $(kn service list demo -o jsonpath='{.items[].status.url}')
+http options $(kn service describe hello -o jsonpath='{.status.url}')
 kn service delete hello
 ```
 
@@ -78,8 +78,8 @@ Observe with `k9s`.
 ### Call with `hey`
 
 ```bash
-http $(kn service list showcase -o jsonpath='{.items[].status.url}')/hello
-hey -c 10 -n 200 $(kn service list showcase -o jsonpath='{.items[].status.url}')/hello
+http $(kn service describe showcase -o jsonpath='{.status.url}')/hello
+hey -c 10 -n 200 $(kn service describe showcase -o jsonpath='{.status.url}')/hello
 ```
 
 ## DEMO: Eventing system

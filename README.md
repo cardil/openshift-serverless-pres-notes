@@ -1,4 +1,4 @@
-# OpenShift Serverless - Red Hat Forum 2020 Poland - Demo notes
+# OpenShift Serverless - Demo notes
 
 ## Install & Hello World
 
@@ -14,7 +14,7 @@ metadata:
   name: serverless-operator
   namespace: openshift-operators
 spec:
-  channel: '4.5'
+  channel: '4.6'
   name: serverless-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace

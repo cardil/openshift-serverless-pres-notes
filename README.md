@@ -57,7 +57,7 @@ oc get knativeserving knative-serving -n knative-serving
 ```bash
 kubectl create ns demo
 kubens demo
-kn service create hello --image=quay.io/rhdevelopers/knative-tutorial-greeter:quarkus
+kn service create hello --image quay.io/cardil/knative-serving-showcase-js
 http $(kn service list demo -o jsonpath='{.items[].status.url}')
 kn service delete hello
 ```
@@ -68,7 +68,7 @@ kn service delete hello
 
 ```bash
 kn service create showcase \
-  --image quay.io/cardil/knative-serving-showcase:2-send-event \
+  --image quay.io/cardil/knative-serving-showcase-js \
   --env DELAY=1500 \
   --concurrency-limit 1
 ```

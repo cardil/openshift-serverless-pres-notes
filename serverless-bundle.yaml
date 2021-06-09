@@ -1,11 +1,16 @@
 # serverless-bundle.yaml
 # OpenShift Serverless bundle
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-serverless
+---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: serverless-operator
-  namespace: openshift-operators
+  namespace: openshift-serverless
 spec:
   channel: stable
   name: serverless-operator

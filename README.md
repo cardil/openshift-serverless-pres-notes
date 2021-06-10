@@ -12,9 +12,9 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: serverless-operator
-  namespace: openshift-operators
+  namespace: openshift-serverless
 spec:
-  channel: '4.6'
+  channel: stable
   name: serverless-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace

@@ -8,6 +8,18 @@
 # serverless-subscription.yaml
 # OpenShift Serverless subcription
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-serverless
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: serverless-operators
+  namespace: openshift-serverless
+spec: {}
+---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:

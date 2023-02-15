@@ -48,7 +48,7 @@ kind: Namespace
 metadata:
   name: knative-serving
 ---
-apiVersion: operator.knative.dev/v1alpha1
+apiVersion: operator.knative.dev/v1beta1
 kind: KnativeServing
 metadata:
   name: knative-serving
@@ -106,7 +106,7 @@ kind: Namespace
 metadata:
   name: knative-eventing
 ---
-apiVersion: operator.knative.dev/v1alpha1
+apiVersion: operator.knative.dev/v1beta1
 kind: KnativeEventing
 metadata:
   name: knative-eventing
